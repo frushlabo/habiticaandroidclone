@@ -3,7 +3,6 @@ package com.habitrpg.android.habitica.data.implementation
 import android.content.Context
 import com.amplitude.api.Amplitude
 import com.google.gson.JsonSyntaxException
-import com.habitrpg.android.habitica.BuildConfig
 import com.habitrpg.android.habitica.HabiticaBaseApplication
 import com.habitrpg.android.habitica.R
 import com.habitrpg.android.habitica.api.ApiService
@@ -92,9 +91,9 @@ class ApiClientImpl//private OnHabitsAPIResult mResultListener;
 
     private fun buildRetrofit() {
         val logging = HttpLoggingInterceptor()
-        if (BuildConfig.DEBUG) {
-            logging.level = HttpLoggingInterceptor.Level.BODY
-        }
+//        if (BuildConfig.DEBUG) {
+//            logging.level = HttpLoggingInterceptor.Level.BODY
+//        }
 
         val userAgent = System.getProperty("http.agent")
 
@@ -117,9 +116,9 @@ class ApiClientImpl//private OnHabitsAPIResult mResultListener;
                     if (userAgent != null) {
                         builder = builder.header("user-agent", userAgent)
                     }
-                    if (BuildConfig.STAGING_KEY.isNotEmpty()) {
-                        builder = builder.header("Authorization", "Basic " + BuildConfig.STAGING_KEY)
-                    }
+//                    if (BuildConfig.STAGING_KEY.isNotEmpty()) {
+//                        builder = builder.header("Authorization", "Basic " + BuildConfig.STAGING_KEY)
+//                    }
                     val request = builder.method(original.method(), original.body())
                             .build()
                     lastAPICallURL = original.url().toString()

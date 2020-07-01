@@ -326,4 +326,4 @@ gradle.projectsEvaluated {
 
 check { findbugs { skip true } }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

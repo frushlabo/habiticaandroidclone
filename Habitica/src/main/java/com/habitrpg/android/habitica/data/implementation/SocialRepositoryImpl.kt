@@ -1,6 +1,5 @@
 package com.habitrpg.android.habitica.data.implementation
 
-import com.habitrpg.android.habitica.BuildConfig
 import com.habitrpg.android.habitica.data.ApiClient
 import com.habitrpg.android.habitica.data.SocialRepository
 import com.habitrpg.android.habitica.data.local.SocialLocalRepository
@@ -73,7 +72,7 @@ class SocialRepositoryImpl(localRepository: SocialLocalRepository, apiClient: Ap
     override fun flagMessage(chatMessage: ChatMessage, additionalInfo: String): Flowable<Void> {
         return when {
             chatMessage.id == "" -> Flowable.empty()
-            userID == BuildConfig.ANDROID_TESTING_UUID -> Flowable.empty()
+//            userID == BuildConfig.ANDROID_TESTING_UUID -> Flowable.empty()
             else -> {
                 val data = mutableMapOf<String, String>()
                 data["comment"] = additionalInfo
